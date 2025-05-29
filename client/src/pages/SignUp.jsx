@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 // import ContextAuthModal from "../components/modals/ContextAuthModal";
 import { RxCross1 } from "react-icons/rx";
-// import ButtonLoadingSpinner from "../components/loader/ButtonLoadingSpinner";
-// import Logo from "../assets/SocialEcho.png";
+import ButtonLoadingSpinner from "../components/loader/ButtonLoadingSpinner";
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
