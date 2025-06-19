@@ -28,8 +28,8 @@ const sendVerificationEmail = async (req, res) => {
     const verificationLink = `${CLIENT_URL}/auth/verify?email=${email}&code=${verificationCode}`;
     try{
         let transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST ,
-            port: process.env.MAIL_PORT,
+            host:'smtp-relay.brevo.com' ,
+            port: 587,
             secure: false,
             auth: {
                 user: USER,
@@ -38,11 +38,12 @@ const sendVerificationEmail = async (req, res) => {
         });
 
         let info = await transporter.sendMail({
-            from: `"WeNet" <${USER}>`,
+            from: process.env.SENDER_MAIL,
             to: email,
             subject: "Verify your email address",
             html: verifyEmailHTML(name, verificationLink, verificationCode),
         });
+        console.log("Message sent: %s", info.messageId);
 
         const newVerification = new EmailVerification({
             email,
@@ -52,7 +53,7 @@ const sendVerificationEmail = async (req, res) => {
         });
 
         await newVerification.save();
-        res.status(200).json({
+        return res.status(200).json({
             success: true,
             message: "Verification email sent successfully",
         });

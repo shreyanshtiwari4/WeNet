@@ -1,5 +1,5 @@
 const {check, validationResult} = require('express-validator');
-const User = require('../../models/User');
+const User = require('../../models/user.model');
 const path = require('path');
 const fs = require('fs');
 
@@ -40,8 +40,8 @@ const addUserValidatorHandler = (req, res, next) => {
         next();
     }else{
         if(req.files && req.files.length>0){
-            const {fileName} = req.files[0];
-            const filePath = path.join(__dirname, '../../assests/userAvatars', fileName);
+            const {filename} = req.files[0];
+            const filePath = path.join(__dirname, '../../assests/userAvatars', filename);
             fs.unlink(filePath, (err)=>{
                 if(err){
                     console.log(err);
