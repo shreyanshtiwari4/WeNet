@@ -25,6 +25,7 @@ const {
 } = require("../middlewares/limiter/limiter");
 
 const avatarUpload = require('../middlewares/users/AvatarUpload');
+const decodeToken = require("../middlewares/auth/decodeToken")
 const requireAuth = passport.authenticate('jwt', {session: false},null);
 
 router.post("/signup",
@@ -49,7 +50,7 @@ router.post(
 
 router.post("/logout",logout);
 
-router.put(":/id",
+router.put("/:id",
   requireAuth,
   decodeToken,
   updateInfo
