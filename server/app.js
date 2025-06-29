@@ -1,5 +1,8 @@
 const express = require('express');
 const {connectDB} = require('./config/db.js');
+const adminRoutes = require('./routes/admin.route.js');
+const communityRoutes = require('./routes/community.route.js');
+const search = require('./controllers/search.controller');
 const userRoutes = require('./routes/user.route.js');
 const contextAuthRoutes = require("./routes/context-auth.route.js")
 const dotenv = require('dotenv');
@@ -24,7 +27,8 @@ app.use(
 
 app.use("/users", userRoutes);
 app.use("/auth", contextAuthRoutes);
-
+app.use("/communities", communityRoutes);
+app.use("/admin", adminRoutes);
 
 connectDB();
 
