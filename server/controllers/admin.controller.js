@@ -1,13 +1,13 @@
-const Log = require("../models/log.model");
+const Log = require("../models/log.model.js");
 const dayjs = require("dayjs");
-const formatCreatedAt = require("../utils/timeConverter");
-const Admin = require("../models/admin.model");
+const formatCreatedAt = require("../utils/timeConvertor.js");
+const Admin = require("../models/admin.model.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const AdminToken = require("../models/token.admin.model");
-const Config = require("../models/config.model");
-const Community = require("../models/community.model");
-const User = require("../models/user.model");
+const AdminToken = require("../models/token.admin.model.js");
+const Config = require("../models/config.model.js");
+const Community = require("../models/community.model.js");
+const User = require("../models/user.model.js");
 
 /**
  * @route GET /admin/logs
