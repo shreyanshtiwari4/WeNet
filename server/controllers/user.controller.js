@@ -1,15 +1,15 @@
-const bcrypt = require('bcrypt');
-const User = require('../models/user.model');
-const jwt = require('jsonwebtoken');
-const Token = require('../models/token.model');
-const Post = require('../models/post.model');
-const UserPreference = require('../models/preference.model');
-const Community = require('../models/community.model');
-const { verifyContextData, types } = require("./auth.controller");
-const { saveLogInfo } = require("../middlewares/logger/logInfo")
-const formatCreatedAt = require('../utils/timeConvertor')
-const duration = require("dayjs/plugin/duration");
-const dayjs = require("dayjs");
+import bcrypt from 'bcrypt';
+import User from '../models/user.model.js';
+import jwt from 'jsonwebtoken';
+import Token from '../models/token.model.js';
+import Post from '../models/post.model.js';
+import UserPreference from '../models/preference.model.js';
+import Community from '../models/community.model.js';
+import { verifyContextData, types } from "./auth.controller.js";
+import saveLogInfo from "../middlewares/logger/logInfo.js";
+import formatCreatedAt from '../utils/timeConvertor.js';
+import duration from "dayjs/plugin/duration.js";
+import dayjs from "dayjs";
 dayjs.extend(duration);
 
 
@@ -450,12 +450,12 @@ const updateInfo = async(req,res)=>{
     }
 }
 
-module.exports = {
-    addUser,
-    signin,
-    logout,
-    refreshToken,
-    getModProfile,
-    getUser,
-    updateInfo
+export {
+  addUser,
+  signin,
+  logout,
+  refreshToken,
+  getModProfile,
+  getUser,
+  updateInfo
 };

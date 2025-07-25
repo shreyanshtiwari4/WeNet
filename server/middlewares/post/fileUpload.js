@@ -1,6 +1,11 @@
-const fs = require("fs");
-const multer = require("multer");
-const path = require("path");
+import fs from "fs";
+import multer from "multer";
+import path from "path";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function fileUpload(req, res, next) {
   const up_folder = path.join(__dirname, "../../assets/userFiles");
@@ -62,4 +67,4 @@ function fileUpload(req, res, next) {
   });
 }
 
-module.exports = fileUpload;
+export default fileUpload;

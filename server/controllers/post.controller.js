@@ -1,16 +1,16 @@
-const dayjs = require("dayjs");
-const relativeTime = require("dayjs/plugin/relativeTime");
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime.js";
 dayjs.extend(relativeTime);
-const formatCreatedAt = require("../utils/timeConvertor");
+import formatCreatedAt from "../utils/timeConvertor.js";
 
-const Post = require("../models/post.model");
-const Community = require("../models/community.model");
-const Comment = require("../models/comment.model");
-const User = require("../models/user.model");
-const Relationship = require("../models/relationship.model");
-const Report = require("../models/report.model");
-const PendingPost = require("../models/pendingPost.model");
-const fs = require("fs");
+import Post from "../models/post.model.js";
+import Community from "../models/community.model.js";
+import Comment from "../models/comment.model.js";
+import User from "../models/user.model.js";
+import Relationship from "../models/relationship.model.js";
+import Report from "../models/report.model.js";
+import PendingPost from "../models/pendingPost.model.js";
+import fs from "fs";
 
 const createPost = async (req, res) => {
   try {
@@ -648,7 +648,7 @@ const getPublicPosts = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getPost,
   getPosts,
   createPost,

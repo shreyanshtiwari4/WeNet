@@ -1,10 +1,11 @@
-const nodemailer = require('nodemailer');
-const EmailVerification = require('../../models/email.model');
-const User = require('../../models/user.model');
-const UserPreference = require('../../models/preference.model');
-const{query, validationResult} = require('express-validator');
-const {verifyEmailHTML} = require('../../utils/emailTemplates');
-require('dotenv').config();
+import nodemailer from 'nodemailer';
+import EmailVerification from '../../models/email.model.js';
+import User from '../../models/user.model.js';
+import UserPreference from '../../models/preference.model.js';
+import {query, validationResult} from 'express-validator';
+import {verifyEmailHTML} from '../../utils/emailTemplates.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 const verifyEmailValidation = [
@@ -116,7 +117,7 @@ const verifyEmail = async( req, res, next)=>{
     }
 };
 
-module.exports = {
+export {
     verifyEmailValidation,
     sendVerificationEmail,
     verifyEmail,

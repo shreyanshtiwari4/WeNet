@@ -1,5 +1,5 @@
-const jwt = require('jsonwebtoken');
-const Admin = require('../../models/user.model');
+import jwt from 'jsonwebtoken';
+import Admin from '../../models/user.model.js';
 
 const requireAdminAuth = async( req, res, next)=>{
     try{
@@ -27,4 +27,4 @@ const requireAdminAuth = async( req, res, next)=>{
     }
 }
 
-module.exports = requireAdminAuth;
+export default requireAdminAuth;

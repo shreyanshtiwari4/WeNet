@@ -1,9 +1,10 @@
-const router = require('express').Router();
-const passport = require('passport');
-const useragent = require('express-useragent');
-const requestIp = require('request-ip');
+import express from 'express';
+const router = express.Router();
+import passport from 'passport';
+import useragent from 'express-useragent';
+import requestIp from 'request-ip';
 
-const {
+import {
     addUser,
     signin,
     logout,
@@ -11,21 +12,21 @@ const {
     getModProfile,
     getUser,
     updateInfo
-} = require('../controllers/user.controller');
+} from '../controllers/user.controller.js';
 
-const {addUserValidator, addUserValidatorHandler} = require('../middlewares/users/userValidator');
+import {addUserValidator, addUserValidatorHandler} from '../middlewares/users/userValidator.js';
 
-const {sendVerificationEmail} = require('../middlewares/users/verifyEmail');
+import {sendVerificationEmail} from '../middlewares/users/verifyEmail.js';
 
-const {sendLoginVerificationEmail} =require('../middlewares/users/verifyLogin');
+import {sendLoginVerificationEmail} from '../middlewares/users/verifyLogin.js';
 
-const {
+import {
   signUpSignInLimiter,
   followLimiter,
-} = require("../middlewares/limiter/limiter");
+} from "../middlewares/limiter/limiter.js";
 
-const avatarUpload = require('../middlewares/users/AvatarUpload');
-const decodeToken = require("../middlewares/auth/decodeToken")
+import avatarUpload from '../middlewares/users/AvatarUpload.js';
+import decodeToken from "../middlewares/auth/decodeToken.js";
 const requireAuth = passport.authenticate('jwt', {session: false},null);
 
 router.post("/signup",
@@ -58,4 +59,4 @@ router.put("/:id",
 
 
 
-module.exports = router;
+export default router;

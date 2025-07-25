@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const configSchema = new mongoose.Schema(
   {
@@ -24,4 +24,4 @@ const configSchema = new mongoose.Schema(
   { validateBeforeSave: true }
 );
 
-module.exports = mongoose.model("Config", configSchema);
+export default mongoose.model("Config", configSchema);

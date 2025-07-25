@@ -1,9 +1,9 @@
-const Community = require("../models/community.model");
-const Rule = require("../models/rule.model");
-const User = require("../models/user.model");
-const Report = require("../models/report.model");
-const dayjs = require("dayjs");
-const relativeTime = require("dayjs/plugin/relativeTime");
+import Community from "../models/community.model.js";
+import Rule from "../models/rule.model.js";
+import User from "../models/user.model.js";
+import Report from "../models/report.model.js";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime.js";
 dayjs.extend(relativeTime);
 
 const getCommunities = async (req, res) => {
@@ -508,7 +508,7 @@ const getCommunityMods = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   getCommunities,
   getCommunity,
   createCommunity,

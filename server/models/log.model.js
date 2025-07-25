@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
-const {
+import mongoose from "mongoose";
+import {
   encryptField,
   decryptField,
   decryptData,
-} = require("../utils/encryption");
+} from "../utils/encryption.js";
 const LogSchema = new mongoose.Schema({
   email: { type: String },
 
@@ -27,4 +27,4 @@ LogSchema.methods.decryptContext = function () {
   return decryptData(this.context);
 };
 
-module.exports = mongoose.model("Log", LogSchema);
+export default mongoose.model("Log", LogSchema);

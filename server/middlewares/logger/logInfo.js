@@ -1,5 +1,5 @@
-const Log = require('../../models/log.model');
-const getCurrentContextData = require('../../utils/contextData.js');
+import Log from '../../models/log.model.js';
+import getCurrentContextData from '../../utils/contextData.js';
 
 /**
  * Saves log info to the database
@@ -31,4 +31,4 @@ const saveLogInfo = async(req,message,type,level)=>{
     }
 }
 
-module.exports = saveLogInfo;
+export default saveLogInfo;

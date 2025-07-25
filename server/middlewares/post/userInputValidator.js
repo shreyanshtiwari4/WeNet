@@ -1,4 +1,4 @@
-const { body, validationResult } = require("express-validator");
+import { body, validationResult } from "express-validator";
 
 const MAX_LENGTH = 3000;
 
@@ -33,7 +33,7 @@ const validatorHandler = (req, res, next) => {
   }
 };
 
-module.exports = {
+export {
   postValidator,
   commentValidator,
   validatorHandler,

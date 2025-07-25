@@ -1,6 +1,7 @@
-const router = require("express").Router();
+import express from "express";
+const router = express.Router();
 
-const {
+import {
   retrieveLogInfo,
   deleteLogInfo,
   signin,
@@ -11,14 +12,14 @@ const {
   addModerator,
   removeModerator,
   getModerators,
-} = require("../controllers/admin.controller");
+} from "../controllers/admin.controller.js";
 
-const requireAdminAuth = require("../middlewares/auth/adminAuth");
-const {
+import requireAdminAuth from "../middlewares/auth/adminAuth.js";
+import {
   configLimiter,
   logLimiter,
   signUpSignInLimiter,
-} = require("../middlewares/limiter/limiter");
+} from "../middlewares/limiter/limiter.js";
 
 router.post("/signin", signUpSignInLimiter, signin);
 
@@ -40,4 +41,4 @@ router
   .get(logLimiter, retrieveLogInfo)
   .delete(logLimiter, deleteLogInfo);
 
-module.exports = router;
+export default router;

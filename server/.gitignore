@@ -46,3 +46,6 @@ pids/
 
 # Misc
 *.tgz
+
+# Explicitly include package-lock.json
+!package-lock.json

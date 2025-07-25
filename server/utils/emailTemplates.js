@@ -47,4 +47,4 @@ const verifyLoginHTML = (
   </div>
 `;
 
-module.exports = { verifyEmailHTML, verifyLoginHTML };
+export { verifyEmailHTML, verifyLoginHTML };

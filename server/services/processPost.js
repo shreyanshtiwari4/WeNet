@@ -1,6 +1,6 @@
-const { saveLogInfo } = require("../middlewares/logger/logInfo");
-const createCategoryFilterService = require("./categoryFilterService");
-const Config = require("../models/config.model");
+import saveLogInfo from "../middlewares/logger/logInfo.js";
+import createCategoryFilterService from "./categoryFilterService.js";
+import Config from "../models/config.model.js";
 
 /**
  * @param next - confirmPost (/middlewares/post/postConfirmation.js)
@@ -76,4 +76,4 @@ const getSystemPreferences = async () => {
   }
 };
 
-module.exports = processPost;
+export default processPost;

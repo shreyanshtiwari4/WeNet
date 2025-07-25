@@ -1,4 +1,4 @@
-const geoip = require('geoip-lite');
+import geoip from 'geoip-lite';
 
 const getCurrentContextData = (req)=>{
     const ip =req.clientIp || req.ip ||"unknown";
@@ -28,4 +28,4 @@ const getCurrentContextData = (req)=>{
     };
 };
 
-module.exports = getCurrentContextData;
+export default getCurrentContextData;

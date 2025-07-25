@@ -1,8 +1,8 @@
-const {
+import {
   getCategoriesFromTextRazor,
   getCategoriesFromInterfaceAPI,
   getCategoriesFromClassifierAPI,
-} = require("./apiServices");
+} from "./apiServices.js";
 
 class CategoryFilterService {
   async getCategories(content, timeout) {
@@ -41,4 +41,4 @@ function createCategoryFilterService(servicePreference) {
   }
 }
 
-module.exports = createCategoryFilterService;
+export default createCategoryFilterService;

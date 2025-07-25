@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const suspiciousLoginSchema = new mongoose.Schema(
   {
@@ -61,4 +61,4 @@ const suspiciousLoginSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("SuspiciousLogin", suspiciousLoginSchema);
+export default mongoose.model("SuspiciousLogin", suspiciousLoginSchema);

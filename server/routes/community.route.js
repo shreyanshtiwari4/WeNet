@@ -1,7 +1,8 @@
-const router = require("express").Router();
-const passport = require("passport");
+import express from "express";
+const router = express.Router();
+import passport from "passport";
 
-const {
+import {
   getNotMemberCommunities,
   getMemberCommunities,
   getCommunityMembers,
@@ -19,9 +20,9 @@ const {
   addRulesToCommunity,
   addRules,
   addModToCommunity,
-} = require("../controllers/community.controller");
+} from "../controllers/community.controller.js";
 
-const decodeToken = require("../middlewares/auth/decodeToken");
+import decodeToken from "../middlewares/auth/decodeToken.js";
 
 router.use(passport.authenticate("jwt", { session: false }, null), decodeToken);
 
@@ -46,4 +47,4 @@ router.delete("/reported-posts/:postId", removeReportedPost);
 
 router.patch("/:name/add-moderators", addModToCommunity);
 
-module.exports = router;
+export default router;

@@ -1,10 +1,11 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
-const Community = require("../models/community.model");
-const ModerationRule = require("../models/rule.model");
-const communities = require("../data/communities.json");
-const rules = require("../data/moderationRules.json");
-const kleur = require("kleur");
+import dotenv from "dotenv";
+dotenv.config();
+import mongoose from "mongoose";
+import Community from "../models/community.model.js";
+import ModerationRule from "../models/rule.model.js";
+import communities from "../data/communities.json" assert { type: "json" };
+import rules from "../data/moderationRules.json" assert { type: "json" };
+import kleur from "kleur";
 const LOG = console.log;
 
 mongoose.set("strictQuery", false);

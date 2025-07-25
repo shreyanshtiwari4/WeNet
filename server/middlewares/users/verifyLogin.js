@@ -1,10 +1,11 @@
-const nodemailer = require('nodemailer');
-const SuspiciousLogin = require('../../models/suspiciousLogin.model');
-const UserContext = require('../../models/context.model');
-const EmailVerification = require('../../models/email.model');
-const { query, validationResult } = require('express-validator');
-const { verifyLoginHTML } = require('../../utils/emailTemplates');
-require('dotenv').config();
+import nodemailer from 'nodemailer';
+import SuspiciousLogin from '../../models/suspiciousLogin.model.js';
+import UserContext from '../../models/context.model.js';
+import EmailVerification from '../../models/email.model.js';
+import { query, validationResult } from 'express-validator';
+import { verifyLoginHTML } from '../../utils/emailTemplates.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const verifyLoginValidation = [
     query('email').isEmail().normalizeEmail(),
@@ -127,9 +128,9 @@ const blockLogin = async(req, res)=>{
   }
 };
 
-module.exports = {
+export {
     verifyLoginValidation,
     sendLoginVerificationEmail,
     verifyLogin,
     blockLogin,
-}
+};
