@@ -8,13 +8,15 @@ const createAppStore = async () => {
   try {
     const store = configureStore({
       reducer: rootReducer,
-      middleware: [thunk, tokenMiddleware],
+      middleware:(getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(tokenMiddleware),
     });
 
     await store.dispatch(initializeAuth());
 
     return store;
   } catch (err) {
+    console.log(err.message);
     throw new Error("Some error occurred");
   }
 };
