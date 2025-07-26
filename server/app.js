@@ -2,7 +2,7 @@ const express = require('express');
 const {connectDB} = require('./config/db.js');
 const adminRoutes = require('./routes/admin.route.js');
 const communityRoutes = require('./routes/community.route.js');
-const search = require('./controllers/search.controller');
+const search = require('./controllers/search.controller.js');
 const userRoutes = require('./routes/user.route.js');
 const postRoutes = require('./routes/post.route.js')
 const contextAuthRoutes = require("./routes/context-auth.route.js")
@@ -30,7 +30,7 @@ app.use("/users", userRoutes);
 app.use("/auth", contextAuthRoutes);
 app.use("/communities", communityRoutes);
 app.use("/admin", adminRoutes);
-app.use("posts", postRoutes);
+app.use("/posts", postRoutes);
 
 connectDB();
 
