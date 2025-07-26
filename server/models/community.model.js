@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const communitySchema = new Schema(
@@ -58,4 +58,4 @@ const communitySchema = new Schema(
 
 communitySchema.index({ name: "text" });
 
-module.exports = mongoose.model("Community", communitySchema);
+export default mongoose.model("Community", communitySchema);

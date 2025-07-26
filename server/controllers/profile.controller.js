@@ -1,10 +1,10 @@
-const User = require("../models/user.model");
-const Relationship = require("../models/relationship.model");
-const Post = require("../models/post.model");
-const Community = require("../models/community.model");
-const dayjs = require("dayjs");
-const duration = require("dayjs/plugin/duration");
-const mongoose = require("mongoose");
+import User from "../models/user.model.js";
+import Relationship from "../models/relationship.model.js";
+import Post from "../models/post.model.js";
+import Community from "../models/community.model.js";
+import dayjs from "dayjs";
+import duration from "dayjs/plugin/duration.js";
+import mongoose from "mongoose";
 
 dayjs.extend(duration);
 
@@ -288,10 +288,13 @@ const getFollowingUsers = async (req, res) => {
   }
 };
 
-module.exports = {
-  getPublicUsers,
-  followUser,
-  getPublicUser,
-  unfollowUser,
-  getFollowingUsers,
+export {
+  getProfile,
+  getPublicProfile,
+  follow,
+  unfollow,
+  addAvatarImage,
+  updateUserInfo,
+  getFollowers,
+  getFollowing,
 };

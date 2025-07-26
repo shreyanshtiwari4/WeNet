@@ -1,4 +1,4 @@
-const axios = require("axios");
+import axios from "axios";
 
 const getCategoriesFromTextRazor = async (content, timeout) => {
   const API_KEY = process.env.TEXTRAZOR_API_KEY;
@@ -175,7 +175,7 @@ const getCategoriesFromInterfaceAPI = async (content, timeout) => {
   }
 };
 
-module.exports = {
+export {
   getCategoriesFromTextRazor,
   getCategoriesFromClassifierAPI,
   getCategoriesFromInterfaceAPI,

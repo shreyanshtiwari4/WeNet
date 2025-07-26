@@ -1,7 +1,8 @@
-const router = require("express").Router();
-const passport = require("passport");
+import express from "express";
+const router = express.Router();
+import passport from "passport";
 
-const {
+import {
   getPublicPosts,
   getPosts,
   getPost,
@@ -18,25 +19,25 @@ const {
   unsavePost,
   getSavedPosts,
   clearPendingPosts,
-} = require("../controllers/post.controller");
+} from "../controllers/post.controller.js";
 
-const {
+import {
   postValidator,
   commentValidator,
   validatorHandler,
-} = require("../middlewares/post/userInputValidator");
+} from "../middlewares/post/userInputValidator.js";
 
-const {
+import {
   createPostLimiter,
   likeSaveLimiter,
   commentLimiter,
-} = require("../middlewares/limiter/limiter");
+} from "../middlewares/limiter/limiter.js";
 
-const postConfirmation = require("../middlewares/post/postConfirmation");
-const analyzeContent = require("../services/analyzeContent");
-const processPost = require("../services/processPost");
-const fileUpload = require("../middlewares/post/fileUpload");
-const decodeToken = require("../middlewares/auth/decodeToken");
+import postConfirmation from "../middlewares/post/postConfirmation.js";
+import analyzeContent from "../services/analyzeContent.js";
+import processPost from "../services/processPost.js";
+import fileUpload from "../middlewares/post/fileUpload.js";
+import decodeToken from "../middlewares/auth/decodeToken.js";
 
 const requireAuth = passport.authenticate("jwt", { session: false }, null);
 
@@ -83,4 +84,4 @@ router.patch("/:id/unsave", unsavePost);
 router.patch("/:id/like", likePost);
 router.patch("/:id/unlike", unlikePost);
 
-module.exports = router;
+export default router;

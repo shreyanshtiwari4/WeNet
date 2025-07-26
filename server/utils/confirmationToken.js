@@ -1,4 +1,4 @@
-const crypto = require("crypto");
+import crypto from "crypto";
 
 const generateConfirmationToken = (userId) => {
     const currentTime = Date.now().toString();
@@ -6,4 +6,4 @@ const generateConfirmationToken = (userId) => {
     return crypto.createHash("sha256").update(tokenData).digest("hex");
 };
 
-module.exports = generateConfirmationToken;
+export default generateConfirmationToken;

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const ruleSchema = new mongoose.Schema({
   rule: {
@@ -11,4 +11,4 @@ const ruleSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Rule", ruleSchema);
+export default mongoose.model("Rule", ruleSchema);

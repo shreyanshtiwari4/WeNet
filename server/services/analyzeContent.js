@@ -1,6 +1,6 @@
-const { google } = require("googleapis");
-const { saveLogInfo } = require("../middlewares/logger/logInfo");
-const Config = require("../models/config.model");
+import { google } from "googleapis";
+import saveLogInfo from "../middlewares/logger/logInfo.js";
+import Config from "../models/config.model.js";
 
 const analyzeTextWithPerspectiveAPI = async (
   content,
@@ -99,4 +99,4 @@ const analyzeContent = async (req, res, next) => {
   }
 };
 
-module.exports = analyzeContent;
+export default analyzeContent;

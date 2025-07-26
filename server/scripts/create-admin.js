@@ -1,8 +1,9 @@
-require("dotenv").config();
-const mongoose = require("mongoose");
+import dotenv from "dotenv";
+dotenv.config();
+import mongoose from "mongoose";
 mongoose.set("strictQuery", true);
-const Admin = require("../models/admin.model");
-const { prompt } = require("enquirer");
+import Admin from "../models/admin.model.js";
+import { prompt } from "enquirer";
 
 mongoose
   .connect(process.env.MONGODB_URI, {

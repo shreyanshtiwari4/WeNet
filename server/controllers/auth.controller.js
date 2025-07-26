@@ -1,11 +1,11 @@
-const UserContext = require('../models/context.model');
-const UserPreference = require('../models/preference.model');
-const SuspiciousLogin = require('../models/suspiciousLogin.model');
-const saveLogInfo = require('../middlewares/logger/logInfo');
+import UserContext from '../models/context.model.js';
+import UserPreference from '../models/preference.model.js';
+import SuspiciousLogin from '../models/suspiciousLogin.model.js';
+import saveLogInfo from '../middlewares/logger/logInfo.js';
 
-const getCurrentContextData = require('../utils/contextData.js');
+import getCurrentContextData from '../utils/contextData.js';
 
-const formatCreatedAt = require('../utils/timeConvertor');
+import formatCreatedAt from '../utils/timeConvertor.js';
 
 const types = {
     NO_CONTEXT_DATA: "no_context_data",
@@ -420,7 +420,7 @@ const unblockContextAuthData = async(req, res)=>{
      }
 }
 
-module.exports ={
+export {
   verifyContextData,
   addContextData,
   getAuthContextData,

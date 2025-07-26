@@ -1,9 +1,10 @@
-require("dotenv").config();
-const readline = require("readline");
-const mongoose = require("mongoose");
-const User = require("../models/user.model");
-const Community = require("../models/community.model");
-const kleur = require("kleur");
+import dotenv from "dotenv";
+dotenv.config();
+import readline from "readline";
+import mongoose from "mongoose";
+import User from "../models/user.model.js";
+import Community from "../models/community.model.js";
+import kleur from "kleur";
 const LOG = console.log;
 
 const rl = readline.createInterface({

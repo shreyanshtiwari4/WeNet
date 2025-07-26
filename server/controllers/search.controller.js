@@ -1,6 +1,6 @@
-const Community = require("../models/community.model");
-const User = require("../models/user.model");
-const Post = require("../models/post.model");
+import Community from "../models/community.model.js";
+import User from "../models/user.model.js";
+import Post from "../models/post.model.js";
 
 const search = async (req, res) => {
   try {
@@ -49,4 +49,4 @@ const search = async (req, res) => {
   }
 };
 
-module.exports = search;
+export default search;

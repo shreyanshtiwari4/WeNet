@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+import fs from "fs";
+import path from "path";
+import { promisify } from "util";
 
 const pendingPostSchema = new Schema(
   {
@@ -76,4 +76,4 @@ pendingPostSchema.pre("deleteMany", async function (next) {
   }
 });
 
-module.exports = mongoose.model("PendingPost", pendingPostSchema);
+export default mongoose.model("PendingPost", pendingPostSchema);

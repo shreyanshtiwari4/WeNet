@@ -1,7 +1,7 @@
-const {check, validationResult} = require('express-validator');
-const User = require('../../models/user.model');
-const path = require('path');
-const fs = require('fs');
+import {check, validationResult} from 'express-validator';
+import User from '../../models/user.model.js';
+import path from 'path';
+import fs from 'fs';
 
 const addUserValidator = [
     check("name")
@@ -58,7 +58,7 @@ const addUserValidatorHandler = (req, res, next) => {
     }
 }
 
-module.exports = {
+export {
     addUserValidator,
     addUserValidatorHandler,
 };

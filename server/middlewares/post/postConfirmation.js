@@ -1,7 +1,7 @@
-const generateConfirmationToken = require("../../utils/confirmationToken");
-const Community = require("../../models/community.model");
-const PendingPost = require("../../models/pendingPost.model");
-const fs = require("fs");
+import generateConfirmationToken from "../../utils/confirmationToken.js";
+import Community from "../../models/community.model.js";
+import PendingPost from "../../models/pendingPost.model.js";
+import fs from "fs";
 /**
  * @route POST /posts/
  * @param next - createPost (/controllers/post.controller.js)
@@ -57,4 +57,4 @@ const postConfirmation = async (req, res, next) => {
   }
 };
 
-module.exports = postConfirmation;
+export default postConfirmation;

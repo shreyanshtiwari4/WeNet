@@ -35,4 +35,4 @@ const formatCreatedAt = (createdAt) => {
   );
 };
 
-module.exports = formatCreatedAt;
+export default formatCreatedAt;

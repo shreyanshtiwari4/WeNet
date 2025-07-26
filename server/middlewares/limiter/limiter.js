@@ -1,4 +1,4 @@
-const rateLimit = require('express-rate-limit');
+import rateLimit from 'express-rate-limit';
 const MESSAGE = 'Too many requests, please try again later.';
 
 const createLimiter = (windowMs, max, message)=>{
@@ -17,7 +17,7 @@ const followLimiter = createLimiter(10 * 60 * 1000, 100, MESSAGE);
 const signUpSignInLimiter = createLimiter(10 * 60 * 1000, 100, MESSAGE);
 const commentLimiter = createLimiter(5 * 60 * 1000, 100, MESSAGE);
 
-module.exports = {
+export {
   configLimiter,
   logLimiter,
   createPostLimiter,

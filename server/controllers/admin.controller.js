@@ -1,13 +1,13 @@
-const Log = require("../models/log.model.js");
-const dayjs = require("dayjs");
-const formatCreatedAt = require("../utils/timeConvertor.js");
-const Admin = require("../models/admin.model.js");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const AdminToken = require("../models/token.admin.model.js");
-const Config = require("../models/config.model.js");
-const Community = require("../models/community.model.js");
-const User = require("../models/user.model.js");
+import Log from "../models/log.model.js";
+import dayjs from "dayjs";
+import formatCreatedAt from "../utils/timeConvertor.js";
+import Admin from "../models/admin.model.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import AdminToken from "../models/token.admin.model.js";
+import Config from "../models/config.model.js";
+import Community from "../models/community.model.js";
+import User from "../models/user.model.js";
 
 /**
  * @route GET /admin/logs
@@ -285,7 +285,7 @@ const removeModerator = async (req, res) => {
   }
 };
 
-module.exports = {
+export {
   retrieveServicePreference,
   updateServicePreference,
   retrieveLogInfo,

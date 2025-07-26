@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const fs = require("fs");
-const path = require("path");
-const { promisify } = require("util");
+import fs from "fs";
+import path from "path";
+import { promisify } from "util";
 
 const postSchema = new Schema(
   {
@@ -80,4 +80,4 @@ postSchema.pre("remove", async function (next) {
   }
 });
 
-module.exports = mongoose.model("Post", postSchema);
+export default mongoose.model("Post", postSchema);

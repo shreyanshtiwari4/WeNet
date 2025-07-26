@@ -1,22 +1,28 @@
-const express = require('express');
-const {connectDB} = require('./config/db.js');
-const adminRoutes = require('./routes/admin.route.js');
-const communityRoutes = require('./routes/community.route.js');
-const search = require('./controllers/search.controller.js');
-const userRoutes = require('./routes/user.route.js');
-const postRoutes = require('./routes/post.route.js')
-const contextAuthRoutes = require("./routes/context-auth.route.js")
-const dotenv = require('dotenv');
+import express from 'express';
+import { connectDB } from './config/db.js';
+import adminRoutes from './routes/admin.route.js';
+import communityRoutes from './routes/community.route.js';
+import search from './controllers/search.controller.js';
+import userRoutes from './routes/user.route.js';
+import postRoutes from './routes/post.route.js';
+import contextAuthRoutes from "./routes/context-auth.route.js";
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
-const cors = require('cors');
-const morgan = require("morgan");
+import cors from 'cors';
+import morgan from "morgan";
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const passport = require("passport");
-require("./config/passport.js");
+import passport from "passport";
+import "./config/passport.js";
 
 app.use(passport.initialize());
 app.use(morgan("dev"));

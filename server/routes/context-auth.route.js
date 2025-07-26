@@ -1,8 +1,9 @@
-const router = require("express").Router();
-const passport = require("passport")
-const useragent = require("express-useragent")
+import express from "express";
+const router = express.Router();
+import passport from "passport";
+import useragent from "express-useragent";
 
-const {
+import {
       addContextData,
   getAuthContextData,
   getUserPreferences,
@@ -11,19 +12,19 @@ const {
   deleteContextAuthData,
   blockContextAuthData,
   unblockContextAuthData
-} =require("../controllers/auth.controller")
+} from "../controllers/auth.controller.js";
 
-const {verifyEmailValidation,
+import {verifyEmailValidation,
     verifyEmail
-} = require("../middlewares/users/verifyEmail")
+} from "../middlewares/users/verifyEmail.js";
 
-const {
+import {
     verifyLoginValidation,
     verifyLogin,
     blockLogin
-} = require("../middlewares/users/verifyLogin")
+} from "../middlewares/users/verifyLogin.js";
 
-const decodeToken = require("../middlewares/auth/decodeToken")
+import decodeToken from "../middlewares/auth/decodeToken.js";
 
 const requireAuth = passport.authenticate("jwt",{session:false},null)
 
@@ -77,6 +78,6 @@ router.get("/verify", verifyEmailValidation, verifyEmail, addContextData);
 router.get("/verify-login", verifyLoginValidation, verifyLogin);
 router.get("/block-login", verifyLoginValidation, blockLogin);
 
-module.exports = router;
+export default router;
 
 

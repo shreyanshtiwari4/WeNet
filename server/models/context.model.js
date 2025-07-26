@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const { encryptField, decryptField } = require("../utils/encryption");
+import mongoose from "mongoose";
+import { encryptField, decryptField } from "../utils/encryption.js";
 
 const contextSchema = new mongoose.Schema(
   {
@@ -71,4 +71,4 @@ const contextSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("Context", contextSchema);
+export default mongoose.model("Context", contextSchema);

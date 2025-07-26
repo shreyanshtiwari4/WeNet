@@ -1,6 +1,11 @@
-const fs = require('fs');
-const path = require('path');
-const multer = require('multer');
+import fs from 'fs';
+import path from 'path';
+import multer from 'multer';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 function avatarUpload(req, res, next){
     const up_folder = path.join(__dirname, '../../assests/userAvatars');
@@ -55,4 +60,4 @@ function avatarUpload(req, res, next){
     })
 }
 
-module.exports = avatarUpload;
+export default avatarUpload;
