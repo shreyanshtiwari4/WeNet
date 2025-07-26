@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import FallbackLoading from "./components/loader/FallbackLoading";
-import { publicRoutes, privateRoutes } from "./routes";
+import { publicRoutes, privateRoutes } from "./routes.jsx";
 
 import SignIn from "./pages/SignIn";
 
