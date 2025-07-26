@@ -1,6 +1,7 @@
 import geoip from 'geoip-lite';
 
 const getCurrentContextData = (req)=>{
+    try{
     const ip =req.clientIp || req.ip ||"unknown";
     const location = geoip.lookup(ip) || "unknown";
     const country = location.country?location.country.toString() : "unknown";
@@ -24,8 +25,12 @@ const getCurrentContextData = (req)=>{
         browser,
         os,
         platform,
+        device,
         deviceType
     };
+}catch(err){
+    console.error("Error getting context data:", err.message);
+}
 };
 
 export default getCurrentContextData;

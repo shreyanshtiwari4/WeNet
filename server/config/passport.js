@@ -8,7 +8,7 @@ import jwt from "jsonwebtoken";
 
 const opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = process.env.JWT_SECRET;
+opts.secretOrKey = process.env.SECRET;
 
 passport.use(
   new JwtStrategy(opts, async function (jwt_payload, done) {

@@ -52,7 +52,7 @@ const signin = async (req, res, next) => {
                 req,
                 MESSAGE.INCORRECT_EMAIL,
                 LOG_TYPE.SIGN_IN,
-                INFO.ERROR
+                LEVEL.ERROR
             );
             return res.status(404).json({ message: "Invalid credentials" });
         }
@@ -191,6 +191,7 @@ const signin = async (req, res, next) => {
             LOG_TYPE.SIGN_IN,
             LEVEL.ERROR
         )
+        console.error("Error in signin:", error.message);
 
         return res.status(500).json({
             message: "Something went wrong"
