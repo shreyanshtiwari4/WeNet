@@ -17,8 +17,14 @@ const saveLogInfo = async(req,message,type,level)=>{
             context = `IP: ${ip}, Country: ${country}, City: ${city}, Device Type: ${deviceType}, Browser: ${browser}, Platform: ${platform}, OS: ${os}, Device: ${device}`;
         }
 
+        // Validate required fields
+        if (!message || !type || !level) {
+            console.warn("Missing required fields for log entry");
+            return;
+        }
+
         const log = new Log({
-            email: req? req.body.email: null,
+            email: req && req.body && req.body.email ? req.body.email : null,
             context,
             message,
             type,
@@ -28,6 +34,7 @@ const saveLogInfo = async(req,message,type,level)=>{
         await log.save();
     }catch(error){
         console.error("Error saving log info:", error);
+        // Don't re-throw the error to prevent it from breaking the main flow
     }
 }
 
