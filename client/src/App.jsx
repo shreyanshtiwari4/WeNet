@@ -3,6 +3,9 @@ import { useSelector } from "react-redux";
 import { Routes, Route, Navigate } from "react-router-dom";
 import FallbackLoading from "./components/loader/FallbackLoading";
 import { publicRoutes, privateRoutes } from "./routes.jsx";
+const AdminPanel = lazy(() => import("./pages/AdminPanel"));
+const AdminSignIn = lazy(() => import("./pages/AdminSignIn"));
+import PrivateRoute from "./PrivateRoute";
 
 import SignIn from "./pages/SignIn";
 
@@ -15,6 +18,11 @@ const App = () => {
   return (
     <Suspense fallback={<FallbackLoading />}>
       <Routes>
+         <Route element={<PrivateRoute userData={userData} />}>
+          {privateRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Route>
 
         {publicRoutes.map((route) => (
           <Route key={route.path} path={route.path} element={route.element} />
@@ -23,6 +31,20 @@ const App = () => {
         <Route
           path="/signin"
           element={userData ? <Navigate to="/" /> : <SignIn />}
+        />
+
+         <Route
+          path="/admin/signin"
+          element={
+            adminAccessToken ? <Navigate to="/admin" /> : <AdminSignIn />
+          }
+        />
+
+        <Route
+          path="/admin"
+          element={
+            adminAccessToken ? <AdminPanel /> : <Navigate to="/admin/signin" />
+          }
         />
       </Routes>
     </Suspense>

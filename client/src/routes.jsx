@@ -2,6 +2,8 @@ import { lazy } from "react";
 
 // import Home from "./pages/Home";
 import SignUp from "./pages/SignUp";
+import AllCommunities from "./pages/AllCommunities";
+import MyCommunities from "./pages/MyCommunities";
 
 const VerifyEmail = lazy(() => import("./pages/VerifyEmail"));
 const EmailVerifiedMessage = lazy(() => import("./pages/EmailVerifiedMessage"));
@@ -64,5 +66,13 @@ export const publicRoutes = [
   {
     path: "*",
     element: <NotFound />,
+  },
+  {
+    path: "/communities",
+    element: <AllCommunities />,
+  },
+  {
+    path: "/my-communities",
+    element: <MyCommunities />,
   },
 ];
