@@ -16,14 +16,14 @@ const OwnPost = lazy(() => import("./pages/OwnPost"));
 const Saved = lazy(() => import("./pages/Saved"));
 
 export const privateRoutes = [
-  // {
-  //   path: "/",
-  //   element: <Home />,
-  // },
-  // {
-  //   path: "/home",
-  //   element: <Home />,
-  // },
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/home",
+    element: <Home />,
+  },
   {
     path: "/post/:postId",
     element: <Post />,
